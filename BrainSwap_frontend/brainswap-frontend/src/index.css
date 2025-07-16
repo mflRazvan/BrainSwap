@@ -1,0 +1,342 @@
+/* Forest Academy Learning Platform Styles */
+:root {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+    
+    /* Natural Learning Environment */
+    --bg-primary: linear-gradient(135deg, #0c1810 0%, #1a2e1a 50%, #2d3748 100%);
+    --bg-secondary: rgba(26, 46, 26, 0.8);
+    --bg-card: rgba(45, 55, 72, 0.4);
+    --bg-card-hover: rgba(45, 55, 72, 0.6);
+    
+    --text-primary: #f7fafc;
+    --text-secondary: #e2e8f0;
+    --text-muted: #a0aec0;
+    
+    /* Natural, growth-focused colors */
+    --accent-primary: #fbbf24; /* Forest green - growth, learning */
+    --accent-primary-hover: #f59e0b;
+    --accent-secondary: #34d399; /* Sunset orange - energy, passion */
+    --accent-secondary-hover: #10b981;
+    --accent-tertiary: #a78bfa; /* Lavender - creativity, wisdom */
+    --accent-tertiary-hover: #8b5cf6;
+    
+    /* Supporting colors */
+    --accent-blue: #60a5fa; /* Sky blue - communication */
+    --accent-blue-hover: #3b82f6;
+    --accent-teal: #2dd4bf; /* Teal - balance, harmony */
+    --accent-teal-hover: #14b8a6;
+    
+    --border-color: rgba(160, 174, 192, 0.2);
+    --border-hover: rgba(160, 174, 192, 0.4);
+    
+    --success: #34d399;
+    --warning: #fbbf24;
+    --error: #f56565;
+    
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image:
+        linear-gradient(
+            135deg,
+            #0c1810 0%,
+            #1a2e1a 50%,
+            #2d3748 100%
+        ),
+        linear-gradient(
+            315deg,
+            #2d3748 0%,
+            #1a2e1a 50%,
+            #0c1810 100%
+        );
+    background-size: 100% 1200px; /* 2x your desired repeat height */
+    background-position: 0 0, 0 600px; /* second gradient starts after first */
+    background-repeat: repeat-y;
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* Auth page specific styles */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.auth-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.auth-card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-4px);
+    box-shadow: 
+        0 35px 60px -12px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.auth-header {
+    margin-bottom: 2.5rem;
+}
+
+.auth-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.auth-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.auth-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-button-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-hover));
+    color: white;
+    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+}
+
+.auth-button-primary:hover {
+    background: linear-gradient(135deg, var(--accent-primary-hover), #d97706);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(251, 191, 36, 0.5);
+}
+
+.auth-button-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--accent-secondary);
+    backdrop-filter: blur(10px);
+}
+
+.auth-button-secondary:hover {
+    background: var(--accent-secondary);
+    color: white;
+    border-color: var(--accent-secondary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(52, 211, 153, 0.4);
+}
+
+/* Forest-themed decorative elements */
+.bg-decoration {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+}
+
+.bg-decoration-1 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-teal));
+    top: 15%;
+    left: -12%;
+    animation-delay: 0s;
+}
+
+.bg-decoration-2 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-tertiary));
+    bottom: 10%;
+    right: -8%;
+    animation-delay: 3s;
+}
+
+.bg-decoration-3 {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(90deg, var(--accent-tertiary), var(--accent-blue));
+    top: 50%;
+    left: 85%;
+    animation-delay: 6s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+    33% { transform: translateY(-15px) rotate(120deg) scale(1.05); }
+    66% { transform: translateY(-5px) rotate(240deg) scale(0.95); }
+}
+
+/* Enhanced button styles for global use */
+button {
+    border-radius: 12px;
+    border: 2px solid transparent;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-hover));
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(135deg, var(--accent-primary-hover), #d97706);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+}
+
+button:focus,
+button:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* Button variations for different purposes */
+.btn-teach {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-hover));
+    color: white;
+}
+
+.btn-learn {
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-secondary-hover));
+    color: white;
+}
+
+.btn-connect {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-hover));
+    color: white;
+}
+
+.btn-community {
+    background: linear-gradient(135deg, var(--accent-teal), var(--accent-teal-hover));
+    color: white;
+}
+
+.register-link {
+  color: var(--accent-secondary);
+}
+
+.register-link:hover {
+  color: var(--accent-secondary-hover);
+}
+
+/* Enhanced links */
+a {
+    font-weight: 500;
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-primary-hover);
+}
+
+/* Utility classes for different contexts */
+.text-teach { color: var(--accent-primary); }
+.text-learn { color: var(--accent-secondary); }
+.text-connect { color: var(--accent-blue); }
+.text-community { color: var(--accent-teal); }
+
+.bg-teach { background-color: var(--accent-primary); }
+.bg-learn { background-color: var(--accent-secondary); }
+.bg-connect { background-color: var(--accent-blue); }
+.bg-community { background-color: var(--accent-teal); }
+
+/* Responsive design */
+@media (max-width: 640px) {
+    .auth-card {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    .auth-title {
+        font-size: 2rem;
+    }
+    
+    .bg-decoration {
+        display: none;
+    }
+}
+
+/* Light mode support */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-primary: linear-gradient(135deg, #f0fff4 0%, #dcfce7 50%, #bbf7d0 100%);
+        --bg-secondary: rgba(220, 252, 231, 0.8);
+        --bg-card: rgba(255, 255, 255, 0.8);
+        --bg-card-hover: rgba(255, 255, 255, 0.95);
+        
+        --text-primary: #1f2937;
+        --text-secondary: #4b5563;
+        --text-muted: #6b7280;
+        
+        --border-color: rgba(107, 114, 128, 0.2);
+        --border-hover: rgba(107, 114, 128, 0.4);
+    }
+}
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
